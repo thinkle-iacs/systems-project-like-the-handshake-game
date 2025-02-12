@@ -1,14 +1,14 @@
 .world {
-  width: 80%;
-  height: 80vh;
   background-color: black;
   color: white;
   padding: 3em;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   position: relative;
   box-sizing: border-box;
-  margin-left: 5vw;
-  margin-top: 5vh;
+}
+
+.population-box {
+  position: relative;
 }
 .patient {
   position: absolute;
