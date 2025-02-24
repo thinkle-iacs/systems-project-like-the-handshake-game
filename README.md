@@ -28,3 +28,9 @@ Once you have a plan and have started trying to code, you can paste the contents
 
 Note: if you want to add additional parameters to your model (i.e. let the user enter a number or choose a value on a slider), you will also need to make some changes to the `Simulation.jsx` file which is written in a simplified version of
 React.
+
+Note: you can also change the display of your "patients" by changing Simulation.jsx. You'll see right now it uses a simple set of emojis to display patients based
+on whether they are infected or not.
+
+Finally: when you want to change the names of your simulations in the menu, you'll
+need to edit some text in App.jsx which is where the simulation chooser code is.

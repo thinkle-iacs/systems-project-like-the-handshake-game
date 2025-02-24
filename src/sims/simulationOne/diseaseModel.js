@@ -32,6 +32,7 @@ and not interacting with others in each round.
 // Stats to track (students can add more)
 export const trackedStats = [
   { label: "Total Infected", value: "infected" },
+  { label: "New Infections", value: "newlyInfected" },
 ];
 
 export const defaultSimulationParameters = {
@@ -69,8 +70,16 @@ export const createPopulation = (size = 1600) => {
 const updateIndividual = (person, contact, params) => {
   // Add some logic to update the individual!
   // For example...
+  if (person.infected) {
+    // If they were already infected, they are no longer
+    // newly infected :)
+    person.newlyInfected = false;
+  }
   if (contact.infected) {
     if (Math.random() * 100 < params.infectionChance) {
+      if (!person.infected) {
+        person.newlyInfected = true;
+      }
       person.infected = true;
     }
   }
@@ -95,11 +104,15 @@ export const updatePopulation = (population, params) => {
 // Example: Compute stats (students customize)
 export const computeStatistics = (population, round) => {
   let infected = 0;
+  let newlyInfected = 0;
   for (let p of population) {
     if (p.infected) {
       infected += 1; // Count the infected
     }
+    if (p.newlyInfected) {
+      newlyInfected += 1; // Count the newly infected
+    }
   }
-  return { round, infected };
+  return { round, infected, newlyInfected };
 };
 
