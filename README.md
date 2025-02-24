@@ -1,60 +1,30 @@
-# Data Visualization Project
+# Systems Model Project
 
-For this project, we will be learning about how to use computers to help understand and interpret data. A huge amount of the power of computers comes from working with data, which comes in a variety of forms. Much effective computer science involves manipulating data in order to answer questions.
+_If using AI, please see [my AI prompt](./src/sims/ai-prompt.md)_
 
-In this project, we will be using our programming skills to help explore data sets.
+For this project, you will be editing code in `src/sims/`. I have already created the _handshake game_ we played in class in a simple web app as a model for you.
 
-[Model project source code here](https://github.com/thinkle-iacs/data-visualization/)
+You can modify that game if you like, but your requirement is to complete _simulationOne_ and _simulationTwo_ which are in that folder.
 
-## Libraries used in this project
+For your first challenge, you will be introducing _one_ variable into a basic
+infection scenario.
 
-### Mapping Data
-To map data we will be using open layers library through the [rlayers](https://mmomtchev.github.io/rlayers/) react package. Here is some example map code at 
-work: [Model Map Component](https://github.com/thinkle-iacs/data-visualization/blob/main/src/components/Map.tsx)
+For your _second_ challenge, you will be attempting to simulate a _real world_ disease and/or intervention based on some background research.
 
-### Charting Data
-To chart data, we will be using the [recharts library](https://recharts.org/). Click on "API" for a guide to the different chart types.
-As a rule, we will need to first get our data into a simple form where we have a list of objects like this...
+In every case, it is vital that you be able to move up and down the ladder of abstraction from a basic description of how your model works (i.e. how you would create a classroom simulation like the one we did) to an understanding of how the
+web application works.
 
-```typescript
-let dataToGraph = [
-  {name : 'Rear-Ends',
-   value : 28},
-  {name : 'Sideswipe',
-  value : 42},
-  {name : 'Head-On',
-  value : 12}
-]
-```
+## Getting started:
 
-Once we have that data, we can add it to a chart by using the recharts library. Take a look at their many examples
-on their website, or here's a quick starter:
+TO get started, take a look at [simulationOne](./src/sims/simulationOne/diseaseModel.js). Before you ask for help from AI, fill in the comments in that file with a _plan_ based on what your group does.
 
-```typescript
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  LabelList,
-} from "recharts";
-```
+Once you've done that, try to read through the template code and figure out what
+you need to add. If you're not sure how to write it in JavaScript, I recommend first
+putting in comments with `// slash comment syntax` saying what you're trying to do.
 
-```jsx
-    <BarChart width={1200} height={400} data={dataToGraph}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Bar dataKey="count" fill="#8884d8">
-        <LabelList dataKey="count" position="top" />
-      </Bar>
-    </BarChart>
-```
+_Before using AI_, always **commit** a version of your code to version control. That way, you will easily be able to see what changes AI is suggested using version control, and you also can make sure to give credit in your commit history any time you are getting help from a computer.
 
+Once you have a plan and have started trying to code, you can paste the contents of your file as well as my [AI prompt](./src/sims/ai-prompt.md) into AI in order to get some help converting your ideas into JavaScript.
 
-
-
+Note: if you want to add additional parameters to your model (i.e. let the user enter a number or choose a value on a slider), you will also need to make some changes to the `Simulation.jsx` file which is written in a simplified version of
+React.
