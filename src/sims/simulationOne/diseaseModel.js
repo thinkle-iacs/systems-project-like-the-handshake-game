@@ -29,14 +29,13 @@ and not interacting with others in each round.
  * 
  */
 
-// Stats to track (students can add more)
-export const trackedStats = [
-  { label: "Total Infected", value: "infected" },
-  { label: "New Infections", value: "newlyInfected" },
-];
+
 
 export const defaultSimulationParameters = {
   infectionChance: 50,
+  // Add any new parameters you want here with their initial values
+  //  -- you will also have to add inputs into your jsx file if you want
+  // your user to be able to change these parameters.
 };
 
 /* Creates your initial population. By default, we *only* track whether people
@@ -100,6 +99,26 @@ export const updatePopulation = (population, params) => {
   }
   return population;
 };
+
+
+// Stats to track (students can add more)
+// Any stats you add here should be computed
+// by Compute Stats below
+export const trackedStats = [
+  { label: "Total Infected", value: "infected" },
+];
+
+// Example: Compute stats (students customize)
+export const computeStatistics = (population, round) => {
+  let infected = 0;
+  for (let p of population) {
+    if (p.infected) {
+      infected += 1; // Count the infected
+    }
+  }
+  return { round, infected };
+};
+
 
 // Example: Compute stats (students customize)
 export const computeStatistics = (population, round) => {

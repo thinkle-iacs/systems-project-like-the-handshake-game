@@ -41,14 +41,14 @@ import { shufflePopulation } from "../../lib/shufflePopulation";
  * 
  */
 
-// Stats to track (students can add more)
-export const trackedStats = [
-  { label: "Total Infected", value: "infected" },
-];
+
 // Default parameters -- any properties you add here
 // will be passed to your disease model when it runs.
+
 export const defaultSimulationParameters = {
-  // fill in with whatever you want to simulate...
+  // Add any parameters you want here with their initial values
+  //  -- you will also have to add inputs into your jsx file if you want
+  // your user to be able to change these parameters.
 };
 
 /* Creates your initial population. By default, we *only* track whether people
@@ -85,6 +85,13 @@ export const updatePopulation = (population, params) => {
   // Figure out your logic here...
   return population;
 };
+
+// Stats to track (students can add more)
+// Any stats you add here should be computed
+// by Compute Stats below
+export const trackedStats = [
+  { label: "Total Infected", value: "infected" },
+];
 
 // Example: Compute stats (students customize)
 export const computeStatistics = (population, round) => {
